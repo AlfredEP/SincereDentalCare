@@ -1,0 +1,934 @@
+/* ===== GLOBAL STYLES ===== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: 'Arial', sans-serif;*/
+}
+
+body { 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flow-root; /* Contains margins */
+    background-color: white;/*#CDE4F2*/; /* Light Blue Background*/
+    line-height: 1.6; /*NEW*/
+    color: #333;
+    overflow-x: hidden;/*new added*/
+}
+
+/* Main content starts below header */
+main {
+    margin-top: -10px ; /* Pull content up */
+    padding-top: 0; /* Small padding instead */
+    position: relative;
+    background: white; /* Solid background */
+    z-index: 1; /* Stays below sticky header */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    padding-top: 0; /* Adds breathing room below sticky header */
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+.header {
+    background-color: var(#CDE4F2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;/* Contains background properly */
+    /*display: flex;
+    flex-direction: column;*/
+    padding: 0; /* Remove any padding that might interfere */
+    /*padding-bottom: 0;*/
+}
+
+/* Create a container that will hold BOTH header content AND nav */
+.header-container {
+    background-color: inherit; /* Inherits light blue from .header */
+    display: flex;
+    flex-direction: column;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;/*sblmnya 0 20*/
+    border-bottom: 3px solid #0A52A4;
+    /*min-height: 80px;*/ /* Set a minimum height */
+    height: 60px; /* for mobile */
+    background-color: #CDE4F2; /* Ensure full coverage */
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+
+h3 {/*sebelumnya h1 dan h3*/
+    color: #0A52A4;/*#094B95 Dark Blue for Headings */
+}
+
+.logo img {
+    height: 50px;/*buat mobile dulu, sblmnya 80*/
+    width: auto;
+    /*display:block;*/
+    margin: 0;
+    object-fit: contain; /* Prevent distortion */
+}
+
+.header h1 {
+    font-size: clamp(1rem, 5vw, 2rem);/*base for mobile*/
+    color: #0A52A4;
+    margin: 0 10px;/*sblmnya 0 15*/
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;      /* force single line */
+    overflow: hidden;         /* hide overflow if still too long */
+    text-overflow: ellipsis;  /* optional: add … if it overflows */
+}
+
+/* ===== TESTIMONIAL BUBBLES ===== */
+.testimonial-section {
+    padding: 20px /*20px*/;
+    background-color: white; 
+}
+.testimonial-container {
+    display: flex;
+    flex-direction: column; /* Mobile: stacked bubbles */
+    justify-content: center;
+    /*align-items: flex-start;*/ /* Align at top for consistent starting point */
+    /*margin: 0 auto;*/
+    /*max-width: 1000px;*/
+    gap: 15px; /* Space between bubbles, sblmnya 20*/
+    padding: 20px;
+    /*height: auto;*/
+    /*flex-wrap: wrap;*/ /* Allows items to wrap on small screens */
+}
+
+.comment-bubble {
+    /*flex-direction: row;
+    position: relative;*/
+    padding: 15px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,119,182,0.1); /* Dental blue tint */
+    justify-content: center;
+    /*transition: transform 0.3s ease;*/
+    overflow: visible;/*sblmnya hidden*/
+    width: 280px; /* Mobile base size */
+    /*max-width: 400px;*/
+    width: 100%;
+    height: auto; /*changed from 100%*/
+    /*border: 1px solid darkblue;*/ /* Temporary for debugging */
+    /*align-items: center;*/ /* Added */
+    display: block; /* Added */
+    min-width: unset;
+    margin: 0 auto 10px; /* Center with bottom spacing */ /*dari 20 ke 10*/
+    white-space: normal;/*new*/
+}
+
+/* Speech bubble tail */
+.comment-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50px;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: white transparent;
+}
+
+.review-photo {
+    /*position: absolute;
+    top: 0;
+    left: 0;*/
+    width: 100%;
+    height: auto; 
+    object-fit: contain;
+    /*min-width: 200px;*/
+    /*display: block;*/
+}
+
+.dental-accent {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #0077B6; /* Dental blue */
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+  
+a {
+    text-decoration: none;
+    color: #2c3e50;
+}
+  
+a:hover {
+    color: #3498db; /* Light Blue for Hover*/ 
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1.2rem;
+}
+
+header img {
+    width: auto;
+    height: 90px; /* Fixed height for logo*/
+    margin-left: 5px;
+    display: block;
+}
+
+nav {
+    background-color: #094B95; 
+    padding: 6px;
+    text-align: center;
+    /*height: 10px;*/
+    position: sticky; /* Makes the nav bar sticky */
+    top: 0; /* Sticks to the top of the viewport */
+    z-index: 1000; /* Ensures it stays above other content */
+    box-shadow: 0 4px 12px rgba(10, 82, 164, 0.15); /* Soft blue shadow */
+    transition: all 0.3s ease;
+    /*align-items: center;*/
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    align-items: center;
+    position: relative;
+    padding: 5px 15px;
+    transition: all 0.3s;
+}
+
+nav a.active {
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid var(#CDE4F2);
+}
+
+nav a:hover {
+    color: aliceblue; 
+    text-decoration: underline;
+}
+
+nav a:hover:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(#CDE4F2);
+}
+
+.nav-cta {
+    background: var(white);
+    color: var(#0A52A4) !important;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+hr {
+    border: 1px solid #0A52A4; 
+}
+
+section {
+    padding: 20px 15px;
+    text-align: center;
+    /*opacity: 1;*/
+    /*animation: fadeIn 1s forwards;*/
+    max-width: 1200px;
+    margin: 0 auto;
+    /*margin-top: 0;
+    padding-bottom: 20px;*/ /* Adjust this value to control spacing */
+}
+
+/* ===== ABOUT SECTION ===== */
+#about {
+    position: relative; /* For proper centering */
+    padding: 20px 15px 0; /* Top padding 0 for mobile */
+    margin-top: 0;
+    padding-top: 0 ;
+}
+
+.clinic-room-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+#about img[alt="Ruang Praktek"] {
+    width: 100%;
+    max-width: 270px; /* Mobile size */
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto; /*sblmnya 15 auto*/
+    /*display: block; */     /* Ensures proper margin behavior */
+    border: 2px solid #0A52A4;
+    /*box-shadow: 0 4px 8px rgba(10, 82, 164, 0.2);*/
+    /*object-fit: cover;*/ /* This will prevent distortion */
+}
+
+#about p, 
+#appointment p {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Appointment section */
+#appointment {
+    background-color: white; /*#f8f9fa*/
+    border-radius: 10px;
+}
+
+#appointment button {
+    background-color: #0A52A4;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+#appointment button:hover {
+    background-color: #0A52A4;/*sblmnya 094B95*/
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.doctor-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /*sblmnya 35*/
+    margin: 40px auto;
+    flex-wrap: wrap;
+    padding: 40px 20px; /*sblmnya 25*/
+    background: white;
+    /*border-radius: 5px;*/
+}
+
+.doctor-img-container img {
+    border-radius: 20px;
+    border: 5px solid var(#CDE4F2);
+    width: 250px;
+}
+
+.doctor-profile img {
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+    border: 3px solid #0A52A4;
+    /*box-shadow: 0 4px 15px rgba(10, 82, 164, 0.2);*/
+}
+
+.doctor-bio {
+    max-width: 500px;
+    text-align: center;
+}
+
+.before-after {
+    display: flex;
+    flex-direction: column; /* Stack image + text vertically */
+    align-items: center; /* Center horizontally */
+    /*gap: 5px;*/ /* Space between image and label */
+    /*justify-content: center;*/
+    /*margin: 20px auto;
+    max-width: 90%;*/ /* Prevent touching screen edges */
+    /*padding: 0 15px;*/ /* Add side padding */
+    width: 45%;
+}
+
+.before-after-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between before/after pairs */
+    flex-wrap: wrap;
+    margin: 30px auto;
+    /*max-width: 1200px;*/
+}
+
+.before-after img {
+    width: 100%;
+    max-width: 300px; /* Control image size */
+    border-radius: 8px;
+    border: 1px solid #F5F5F5;
+    /*box-shadow: 0 2px 8px rgba(0,0,0,0.1);*/
+}
+
+.before-after p {
+    font-weight: bold;
+    /*color: black; 
+    margin: 5px 0 0;
+    text-align: center;*/
+    margin-top: 5px;
+}
+
+/* Center the table */
+#schedule {
+    text-align: center; /* Centers the heading */
+    overflow-x: auto;
+}
+
+#schedule table {
+    /*text-align: center;*/
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    border-collapse: collapse;
+    /*box-shadow: 0 2px 8px rgba(0,0,0,0.1);*/
+}
+
+/* Style table cells */
+#schedule th, #schedule td {
+    padding: 12px 15px;
+    border: 1px solid #CDE4F2;
+    text-align: center;
+}
+
+#schedule th {
+    background-color: #0A52A4;
+    color: white;
+}
+
+#schedule tr:nth-child(even) {
+    background-color: #f0f8ff; /* Light Blue for even rows */
+}
+
+/* Make both columns take equal width */
+#schedule td:first-child, 
+#schedule td:last-child {
+    width: 50%; /* Ensures equal spacing */
+}
+
+/* Add vertical line */
+#schedule td:first-child {
+    border-right: 2px solid #0A52A4; /* Dark Blue vertical line */
+    font-weight: bold; /* Makes day names stand out */
+}
+
+/* Schedule Cards */
+.schedule-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.schedule-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+}
+
+.schedule-card.highlight {
+    background: var(#CDE4F2);
+    border: 2px dashed var(#0A52A4);
+}
+
+button {
+    transition: all 0.3s ease;
+    background-color: #0A52A4; 
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    animation: ease;
+    color: white;
+    transform: scale(1.05);
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+    background: #094B95; 
+}
+
+form {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 8px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.contact table {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  
+.contact td {
+    padding: 10px;
+}
+
+.contact td:first-child {
+    color: #2c3e50;
+    font-weight: bold;
+}
+  
+.contact td:last-child {
+    color: #27ae60;
+}
+  
+.contact td[style*="color: #777"] {
+    color: #777;
+}
+
+#contact {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#contact i {
+    margin-right: 10px; /* Space between icon and text */
+    color: #0A52A4; /* Dark Blue to match your theme*/ 
+    font-size: 1.2rem; /* Adjust icon size */
+}
+
+#contact a {
+    color: #0A52A4; /* Dark Blue for links */
+    text-decoration: none;
+}
+
+#contact a:hover {
+    color: #094B95;/* Slightly darker blue on hover */
+    text-decoration: underline;
+    animation: cubic-bezier(1, 0, 0, 1);
+}
+
+.map-container iframe {
+    width: 400px;
+    height: 350px;
+    border: none;
+    margin-top: 20px;
+}
+
+.experience-badge {
+    background: var(#0A52A4);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /*font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;*/
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    /*padding: 20px 0;*/
+    margin-top: 30px;
+}
+
+.service-card {
+    background: #f8fbff;
+    padding: 20px; /*sblmnya 25*/
+    border-radius: 15px;
+    border: 1px solid #CDE4F2;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.service-card i {
+    font-size: 1.8rem;
+    color: var(#0A52A4);
+    margin-bottom: 10px;
+    /*display: block;*//*baru dihilangkan*/
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    /*background: #0A52A4;
+    color: white;*/
+    box-shadow: 0 10px 20px rgba(10,82,164,0.1);
+    border-color: var(#CDE4F2);
+}
+
+.service-card:hover i { color: white; }
+
+/*footer*/
+footer {
+    background-color: #CDE4F2; /* Light Blue */
+    color: #000;
+    /*text-align: center;*/
+    padding: 20px;/*sblmnya 6*/
+    /*border-top: 2px solid #003366;*/
+    justify-content: center;
+    display: flex;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column; /*biar di hp logo diatas bukn samping*/
+    /*gap: 7px;*/ /* Space between logo and text */
+    /*padding: 0 20px;*/
+    position: relative; /* Needed for absolute positioning of logo */
+}
+  
+.footer-logo {
+    order: -1; /* Moves logo to top */
+    margin-bottom: 15px;
+    position: static; /* Remove absolute positioning */
+    height: 70px; 
+    /*position: absolute;*/ /* Takes logo out of normal flow */
+    /*left: 0;*/ /* Positions at far left */
+    /*margin-right: 20px;*/
+}
+
+.footer-text {
+    flex-grow: 1; /* Takes remaining space */
+    text-align: center; /* Centers the contact info */
+    padding: 0 100px; /* Creates space for logo */
+}
+
+footer p {
+    margin: 0;
+    flex-grow: 1; /* Ensures text takes remaining space */
+    text-align: center;
+    padding: 5px;
+    line-height: 1.5; /* Better readability */
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    padding: 20px;
+    height: 100%;
+    /*display: none;*/
+    /*position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;*/
+    /*flex-direction: column;
+    background-color: #003366;*/
+    /*z-index: 100;*/
+    /*box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s ease;*/
+}
+
+.mobile-nav.active {
+    display: flex;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    margin-top: 50px;
+}
+
+.mobile-nav ol {
+    align-items: left;
+    margin-top: 50px;
+}
+
+.mobile-nav li {
+    margin: 20px 0;
+}
+
+.mobile-nav a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    /*font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.2);*/
+    font-size: 1.2rem;
+}
+
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background: rgba(10, 82, 164, 0.95);
+    z-index: 1001;
+    transition: right 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+    right: 0;
+}
+
+/* Hamburger Button */
+.mobile-menu-btn {
+    display: flex; /* Visible on mobile, seblumnya none*/
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    gap: 5px;
+    width: 40px;
+    /*z-index: 1002;*/
+    /*height: 100%;*/ /* Take full height */
+    /*align-items: center;*/ /* Center hamburger vertically */
+    justify-content: center;
+}
+
+.mobile-menu-btn .bar {
+    /*display: block;*/
+    width: 100%;
+    /*width: 25px;*/
+    height: 3px;
+    background: #0A52A4;
+    /*margin: 5px 0;*/
+    transition: all 0.3s;
+}
+
+/* Hide checkbox */
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+.close-btn:hover{
+    color: black;
+}
+
+.mobile-menu-btn.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.mobile-menu-btn.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-btn.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+    /*background-color: #0A52A4;*/ 
+    width: 100%;
+    display: none; /* Hidden on mobile */
+    /*padding-bottom: 5px;*/
+}
+
+.desktop-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;/*awalnya 10 0*/
+    flex-wrap: wrap; 
+}
+
+.desktop-nav li {
+    margin: 0 12px;
+}
+
+.desktop-nav a {
+    white-space: nowrap;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 0;/*only vertical padding*/
+    transition: all 0.3s;
+}
+
+.desktop-nav a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* 480px+ (Small Mobile Landscape) */
+@media (min-width: 480px) {
+    .header-top {
+        height: 65px;
+        padding: 0 18px;
+    }
+    .header h1 {
+        font-size: 1.1rem;
+    }
+    .comment-bubble {
+        width: 285px;
+    }
+}
+
+/* 576px+ (Large Phones) */
+@media (min-width: 576px) {
+    .header-top {
+        height: 70px;
+    }
+    .header h1 {
+        font-size: 1.4rem;
+    }
+    .logo img {
+        height: 55px;
+    }
+    #about img[alt="Ruang Praktek"] {
+        max-width: 300px;
+    }
+    .comment-bubble {
+        width: 320px;
+    }
+}
+
+/* Mobile: Hide desktop nav */
+@media (max-width: 767px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-btn { display: flex; }
+}
+
+/* 768px+ (Tablets) */
+@media (min-width: 768px) {
+    main {
+        margin-top: 0 !important;
+    }
+
+    #about {
+        margin-top: 0; /* Reset for desktop */
+    }
+
+    .header-top {
+        height: 80px;
+        padding: 0 20px;
+    }
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .testimonial-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+    .comment-bubble {
+        width: 300px;
+        height: 200px;
+        /*height: 100%;
+        width: 100%;*/
+    }
+
+    .footer-content {
+        flex-direction: row; /* Side by side */
+        align-items: center;
+    }
+    .footer-logo {
+        order: 0; /* Reset order */
+        position: absolute;
+        left: 0;
+        margin-bottom: 0;
+        height: 75px;
+    }
+
+    /* Switch to desktop navigation */
+    .desktop-nav { display: flex; }
+    .mobile-menu-btn { display: none; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .desktop-nav li {
+        margin: 0 8px; /* reduce from 12px */
+    }
+    .desktop-nav a {
+        font-size: 0.9rem; /* slightly smaller */
+        padding: 6px 0;   /* optional: reduce vertical padding */
+    }
+}
+
+@media (min-width: 992px) {
+    .header-top {
+        height: 100px;
+    }
+
+    section {
+        padding: 30px 40px;
+    }
+    #about {
+        padding-top: 20px; 
+    }
+    #about img[alt="Ruang Praktek"] {
+        max-width: 350px;
+    }
+    .comment-bubble {
+        width: 300px;
+        height: 300px;
+    }
+
+    .desktop-nav li {
+        margin: 0 15px; 
+    }
+    .desktop-nav a {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header h1 {
+        font-size: 2.5rem;/*Sblmnya 2*/
+    }
+    .testimonial-container {
+        gap: 40px;
+    }
+    .comment-bubble {
+        width: 400px;
+    }
+    
+    #about img[alt="Ruang Praktek"] {
+        max-width: 350px;
+    }
+}
