@@ -284,7 +284,7 @@ section {
 
 #about img[alt="Ruang Praktek"] {
     width: 100%;
-    max-width: 270px; /* Mobile size */
+    max-width: 100%; /*270px; -> Mobile size */
     height: auto;
     border-radius: 8px;
     margin: 0 auto; /*sblmnya 15 auto*/
@@ -355,6 +355,42 @@ section {
 .doctor-bio {
     max-width: 500px;
     text-align: center;
+}
+
+.certificate-container {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(10,82,164,0.05);
+}
+
+.certificate-container h3 {
+    color: #0A52A4;
+    margin-bottom: 20px;
+}
+
+.certificate-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certificate-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #CDE4F2;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.certificate-caption {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+    font-size: 0.95rem;
 }
 
 .before-after {
